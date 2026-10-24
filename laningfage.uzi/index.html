@@ -1,0 +1,444 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#070b19">
+
+  <meta name="description" content="Personal portfolio Ziyya — creative developer, web design, dan digital creativity.">
+
+  <title>Ziyya | Personal Portfolio</title>
+
+  <link rel="stylesheet" href="style.css">
+  <script src="script.js" defer></script>
+</head>
+
+<body>
+  <canvas id="stars"></canvas>
+
+  <!-- NAVBAR -->
+  <header class="navbar">
+    <a href="#home" class="logo">ZY<span>SCRIF</span></a>
+
+    <button
+      class="menu-toggle"
+      id="menuToggle"
+      aria-label="Buka menu"
+      aria-expanded="false"
+      type="button">
+      ☰
+    </button>
+
+    <nav id="navMenu">
+      <a href="#home" class="nav-link active">Home</a>
+      <a href="#about" class="nav-link">About</a>
+      <a href="#skills" class="nav-link">Skills</a>
+      <a href="#projects" class="nav-link">Projects</a>
+      <a href="#contact" class="nav-link">Contact</a>
+    </nav>
+  </header>
+
+  <main>
+
+    <!-- HOME / HERO -->
+    <section class="hero section" id="home">
+
+      <div class="hero-content reveal">
+
+        <div class="status">
+          <span></span>
+          Welcome to my universe
+        </div>
+
+        <p class="eyebrow">HELLO, I'M</p>
+
+        <h1>
+          Ziyya<span class="gradient-text">.</span>
+        </h1>
+
+        <h2>
+          I'm a
+          <span id="typing">Creative Developer</span>
+          <span class="cursor">|</span>
+        </h2>
+
+        <p class="description">
+          Seorang pelajar yang tertarik pada dunia teknologi,
+          desain kreatif, dan pengembangan website.
+          Selalu belajar untuk menciptakan sesuatu yang bermakna.
+        </p>
+
+        <div class="hero-buttons">
+          <a href="#projects" class="btn primary">
+            Explore My Work ↗
+          </a>
+
+          <a href="#contact" class="btn secondary">
+            Contact Me
+          </a>
+        </div>
+
+        <div class="social-text">
+          CREATIVE MINDSET · DIGITAL WORLD
+        </div>
+
+        <!-- MUSIC PLAYER -->
+        <div class="music-player">
+
+          <div class="music-info">
+            <span class="music-icon">♫</span>
+
+            <div>
+              <strong>Now Playing</strong>
+              <p>My Galaxy Playlist</p>
+            </div>
+          </div>
+
+          <button
+            id="musicToggle"
+            class="music-toggle"
+            type="button">
+            ▶ Play Music
+          </button>
+
+          <audio
+            id="bgMusic"
+            src="assets/music/lagu.mp3"
+            loop
+            preload="metadata">
+          </audio>
+
+        </div>
+
+        <!-- SOCIAL MEDIA -->
+        <div class="social-heading">
+          <p>FIND ME ON</p>
+        </div>
+
+        <div class="social-links">
+
+          <!-- Instagram -->
+          <a
+            href="https://www.instagram.com/ziyya_fr/"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="social-btn instagram"
+            aria-label="Buka Instagram Ziyya">
+            <span class="social-icon">IG</span>
+            <span>Instagram</span>
+          </a>
+
+          <!-- TikTok -->
+          <a
+            href="https://www.tiktok.com/@ziyya_fr"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="social-btn tiktok"
+            aria-label="Buka TikTok Ziyya">
+            <span class="social-icon">TK</span>
+            <span>TikTok</span>
+          </a>
+
+          <!-- YouTube -->
+          <a
+            href="https://www.youtube.com/@ziyya_fr"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="social-btn youtube"
+            aria-label="Buka YouTube Ziyya">
+            <span class="social-icon">YT</span>
+            <span>YouTube</span>
+          </a>
+
+          <!-- Telegram -->
+          <a
+            href="https://t.me/ziyya_fr"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="social-btn telegram"
+            aria-label="Buka Telegram Ziyya">
+            <span class="social-icon">TG</span>
+            <span>Telegram</span>
+          </a>
+
+        </div>
+
+      </div>
+
+      <!-- GALAXY VISUAL -->
+      <div class="hero-visual reveal">
+
+        <div class="orbit orbit-one"></div>
+        <div class="orbit orbit-two"></div>
+
+        <div class="planet">
+          <div class="planet-glow"></div>
+          <div class="planet-core" style="overflow:hidden; background:transparent; display:flex; align-items:center; justify-content:center;">
+            <img
+              src="assets/images/ziyya.webp"
+              alt="Foto profil Ziyya"
+              style="display:block; width:100%; height:100%; object-fit:cover; object-position:center; border-radius:50%;"
+            >
+          </div>
+        </div>
+
+        <div class="floating-card card-top">
+          ✦ Creative Thinker
+        </div>
+
+        <div class="floating-card card-bottom">
+          <span class="dot"></span>
+          Always Learning
+        </div>
+
+        <div class="mini-star star-one">✦</div>
+        <div class="mini-star star-two">✧</div>
+
+      </div>
+
+      <a href="#about" class="scroll-down">
+        SCROLL TO EXPLORE ↓
+      </a>
+
+    </section>
+
+    <!-- ABOUT -->
+    <section class="section content-section" id="about">
+
+      <div class="section-heading reveal">
+        <p class="eyebrow">GET TO KNOW ME</p>
+        <h2>About <span class="gradient-text">Me</span></h2>
+        <p>Kenalan lebih dekat dengan gue.</p>
+      </div>
+
+      <div class="about-grid">
+
+        <div class="glass-card about-symbol reveal">
+          <div class="symbol">Z<span>✦</span></div>
+          <p class="symbol-caption">
+            CREATIVITY BEYOND LIMITS
+          </p>
+        </div>
+
+        <div class="about-copy reveal">
+
+          <h3>Belajar, Berkarya, Berkembang.</h3>
+
+          <p>
+            Halo! Gue Ziyya. Gue suka mengeksplorasi ide baru,
+            belajar coding, dan membuat desain digital yang menarik.
+          </p>
+
+          <p>
+            Buat gue, setiap project adalah kesempatan untuk
+            mengembangkan kemampuan dan menciptakan sesuatu
+            yang lebih baik.
+          </p>
+
+          <div class="info-grid">
+            <div class="glass-card">
+              <span>Nama</span>
+              <strong>Ziyya</strong>
+            </div>
+
+            <div class="glass-card">
+              <span>Fokus</span>
+              <strong>Web &amp; Design</strong>
+            </div>
+
+            <div class="glass-card">
+              <span>Status</span>
+              <strong>Pelajar</strong>
+            </div>
+
+            <div class="glass-card">
+              <span>Semangat</span>
+              <strong>Terus Belajar</strong>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+    </section>
+
+    <!-- SKILLS -->
+    <section class="section content-section" id="skills">
+
+      <div class="section-heading reveal">
+        <p class="eyebrow">WHAT I EXPLORE</p>
+        <h2>My <span class="gradient-text">Skills</span></h2>
+        <p>Teknologi yang sedang gue pelajari.</p>
+      </div>
+
+      <div class="skills-grid">
+
+        <article class="glass-card skill-card reveal">
+          <div class="skill-icon orange">&lt;/&gt;</div>
+          <h3>HTML</h3>
+          <p>Menyusun struktur halaman website.</p>
+          <div class="skill-track">
+            <span style="width:75%"></span>
+          </div>
+        </article>
+
+        <article class="glass-card skill-card reveal">
+          <div class="skill-icon blue">✳</div>
+          <h3>CSS</h3>
+          <p>Mengatur tampilan dan membuat desain responsif.</p>
+          <div class="skill-track">
+            <span style="width:65%"></span>
+          </div>
+        </article>
+
+        <article class="glass-card skill-card reveal">
+          <div class="skill-icon yellow">JS</div>
+          <h3>JavaScript</h3>
+          <p>Membuat halaman lebih interaktif.</p>
+          <div class="skill-track">
+            <span style="width:40%"></span>
+          </div>
+        </article>
+
+        <article class="glass-card skill-card reveal">
+          <div class="skill-icon purple">✧</div>
+          <h3>Creative Design</h3>
+          <p>Mengeksplorasi warna, layout, dan visual.</p>
+          <div class="skill-track">
+            <span style="width:60%"></span>
+          </div>
+        </article>
+
+      </div>
+
+      <p class="note">
+        Persentase di atas hanya contoh visual.
+        Ubah sesuai kemampuanmu.
+      </p>
+
+    </section>
+
+    <!-- PROJECTS -->
+    <section class="section content-section" id="projects">
+
+      <div class="section-heading reveal">
+        <p class="eyebrow">SELECTED WORK</p>
+        <h2>My <span class="gradient-text">Projects</span></h2>
+        <p>Beberapa contoh project yang bisa lu tampilkan.</p>
+      </div>
+
+      <div class="projects-grid">
+
+        <article class="glass-card project-card reveal">
+          <div class="project-art art-one">
+            <span>01</span>
+            <b>WEB<br>DESIGN</b>
+          </div>
+
+          <div class="project-info">
+            <p class="project-type">WEBSITE</p>
+            <h3>Personal Portfolio</h3>
+            <p>
+              Website profil pribadi dengan nuansa Dark Galaxy.
+            </p>
+            <div class="tags">
+              <span>HTML</span>
+              <span>CSS</span>
+              <span>JS</span>
+            </div>
+          </div>
+        </article>
+
+        <article class="glass-card project-card reveal">
+          <div class="project-art art-two">
+            <span>02</span>
+            <b>DIGITAL<br>SPACE</b>
+          </div>
+
+          <div class="project-info">
+            <p class="project-type">UI DESIGN</p>
+            <h3>Creative Interface</h3>
+            <p>
+              Eksplorasi tampilan antarmuka modern dan elegan.
+            </p>
+            <div class="tags">
+              <span>UI</span>
+              <span>Design</span>
+            </div>
+          </div>
+        </article>
+
+        <article class="glass-card project-card reveal">
+          <div class="project-art art-three">
+            <span>03</span>
+            <b>NEW<br>IDEAS</b>
+          </div>
+
+          <div class="project-info">
+            <p class="project-type">EXPERIMENT</p>
+            <h3>Mini Web Project</h3>
+            <p>
+              Ruang untuk menampilkan karya coding berikutnya.
+            </p>
+            <div class="tags">
+              <span>Creative</span>
+              <span>Learning</span>
+            </div>
+          </div>
+        </article>
+
+      </div>
+
+      <p class="note">
+        Project di atas adalah contoh. Ganti dengan karya asli lu.
+      </p>
+
+    </section>
+
+    <!-- CONTACT -->
+    <section class="section content-section" id="contact">
+
+      <div class="contact-box glass-card reveal">
+
+        <p class="eyebrow">LET'S CONNECT</p>
+
+        <h2>
+          Punya ide <span class="gradient-text">menarik?</span>
+        </h2>
+
+        <p>
+          Gue terbuka untuk ngobrol, berbagi ide, dan belajar hal baru.
+        </p>
+
+        <a
+          class="btn primary"
+          href="mailto:emailkamu@example.com">
+          Say Hello ✉
+        </a>
+
+        <p class="note">
+          Ganti email di kode dengan alamat email lu sendiri.
+        </p>
+
+      </div>
+
+    </section>
+
+  </main>
+
+  <!-- FOOTER -->
+  <footer>
+    <a href="#home" class="logo">ZY<span>SCRIF</span></a>
+
+    <p>
+      Designed with curiosity ✦ ©
+      <span id="year"></span> Ziyya
+    </p>
+
+    <a href="#home" class="back-top">
+      Back to top ↑
+    </a>
+  </footer>
+
+</body>
+</html>
