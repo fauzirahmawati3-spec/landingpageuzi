@@ -1,0 +1,6 @@
+/vendor/
+/writable/*
+!/writable/index.html
+!/writable/.htaccess
+*.exe
+.envVSCodeUserSetup-x64-1.132.0.exe

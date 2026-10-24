@@ -1,0 +1,873 @@
+```html
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Ziyya | My Little Universe</title>
+
+}
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            color: white;
+            min-height: 100vh;
+            overflow-x: hidden;
+
+            background:
+                radial-gradient(circle at 20% 20%, #4b1b75 0%, transparent 30%),
+                radial-gradient(circle at 80% 30%, #172d75 0%, transparent 30%),
+                radial-gradient(circle at 50% 90%, #35115d 0%, transparent 35%),
+                #050510;
+        }
+
+        /* =========================
+           BINTANG
+        ========================== */
+
+        .stars,
+        .stars::before,
+        .stars::after {
+            position: fixed;
+            inset: 0;
+            content: "";
+            pointer-events: none;
+        }
+
+        .stars {
+            z-index: -1;
+            background-image:
+                radial-gradient(2px 2px at 20% 30%, white, transparent),
+                radial-gradient(1px 1px at 70% 20%, white, transparent),
+                radial-gradient(2px 2px at 40% 70%, white, transparent),
+                radial-gradient(1px 1px at 90% 60%, white, transparent),
+                radial-gradient(2px 2px at 10% 80%, white, transparent),
+                radial-gradient(1px 1px at 60% 90%, white, transparent);
+            background-size: 250px 250px;
+            animation: starsMove 20s linear infinite;
+            opacity: .7;
+        }
+
+        @keyframes starsMove {
+            from {
+                transform: translateY(0);
+            }
+
+            to {
+                transform: translateY(-250px);
+            }
+        }
+
+        /* =========================
+           INTRO
+        ========================== */
+
+        .intro {
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 30px;
+        }
+
+        .intro-box {
+            max-width: 700px;
+            padding: 45px 30px;
+            border-radius: 30px;
+
+            background: rgba(255, 255, 255, .07);
+            border: 1px solid rgba(255,255,255,.15);
+
+            backdrop-filter: blur(15px);
+
+            box-shadow:
+                0 0 50px rgba(157, 78, 221, .25);
+        }
+
+        .intro-box h1 {
+            font-size: clamp(35px, 7vw, 75px);
+            margin-bottom: 10px;
+
+            background: linear-gradient(
+                90deg,
+                #ffffff,
+                #d7a8ff,
+                #7dd3fc
+            );
+
+            -webkit-background-clip: text;
+            color: transparent;
+
+
+        }
+
+        .intro-box p {
+            color: #d8d8e8;
+            margin-bottom: 30px;
+            font-size: 16px;
+        }
+
+        .enter-btn {
+            border: none;
+            padding: 14px 35px;
+            border-radius: 50px;
+            cursor: pointer;
+
+            color: white;
+            font-size: 15px;
+            font-weight: bold;
+
+            background: linear-gradient(
+                90deg,
+                #7c3aed,
+                #2563eb
+            );
+
+            box-shadow:
+                0 0 20px rgba(124, 58, 237, .5);
+
+            transition: .3s;
+        }
+
+        .enter-btn:hover {
+            transform: scale(1.07);
+            box-shadow:
+                0 0 35px rgba(124, 58, 237, .8);
+        }
+
+        /* =========================
+           MAIN
+        ========================== */
+
+        #main {
+            display: none;
+        }
+
+        section {
+            width: min(1100px, 92%);
+            margin: auto;
+            padding: 80px 0;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .section-title h2 {
+            font-size: 35px;
+
+            background: linear-gradient(
+                90deg,
+                #c084fc,
+                #60a5fa
+            );
+
+            -webkit-background-clip: text;
+            color: transparent;
+        }
+
+        .section-title p {
+            color: #aaaac0;
+            margin-top: 10px;
+        }
+
+        /* =========================
+           PROFILE
+        ========================== */
+
+        .profile {
+            text-align: center;
+        }
+
+        .profile-img {
+            width: 170px;
+            height: 170px;
+            object-fit: cover;
+
+            border-radius: 50%;
+
+            border: 3px solid rgba(255,255,255,.8);
+
+            box-shadow:
+                0 0 20px #9b5de5,
+                0 0 50px rgba(59,130,246,.5);
+
+            margin-bottom: 20px;
+        }
+
+        .profile h1 {
+            font-size: clamp(35px, 6vw, 60px);
+        }
+
+        .profile .nickname {
+            color: #c084fc;
+            margin: 10px 0 20px;
+        }
+
+        .bio {
+            max-width: 650px;
+            margin: auto;
+            color: #c8c8d5;
+            line-height: 1.8;
+        }
+
+        /* =========================
+           SOCIAL
+        ========================== */
+
+        .socials {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 12px;
+            margin-top: 30px;
+        }
+
+        .socials a {
+            text-decoration: none;
+            color: white;
+
+            padding: 12px 20px;
+            border-radius: 30px;
+
+            background: rgba(255,255,255,.07);
+            border: 1px solid rgba(255,255,255,.12);
+
+            transition: .3s;
+        }
+
+        .socials a:hover {
+            transform: translateY(-5px);
+
+            background: rgba(124,58,237,.25);
+
+            box-shadow:
+                0 0 20px rgba(124,58,237,.4);
+        }
+
+        /* =========================
+           MUSIC
+        ========================== */
+
+        .music-box {
+            position: fixed;
+            right: 20px;
+            bottom: 20px;
+
+            padding: 12px 18px;
+            border-radius: 30px;
+
+            background: rgba(15,15,35,.8);
+            border: 1px solid rgba(255,255,255,.15);
+
+            backdrop-filter: blur(10px);
+
+            z-index: 100;
+        }
+
+        /* =========================
+           VIDEO
+        ========================== */
+
+        .video-card {
+            max-width: 850px;
+            margin: auto;
+
+            padding: 15px;
+
+            border-radius: 25px;
+
+            background: rgba(255,255,255,.06);
+            border: 1px solid rgba(255,255,255,.12);
+
+            box-shadow:
+                0 0 40px rgba(59,130,246,.15);
+        }
+
+        .video-card video {
+            width: 100%;
+            display: block;
+            border-radius: 18px;
+        }
+
+        .video-info {
+            padding: 20px 10px 5px;
+        }
+
+        .video-info h3 {
+            margin-bottom: 10px;
+            color: #d8b4fe;
+        }
+
+        .video-info p {
+            color: #aaaac0;
+            line-height: 1.7;
+        }
+
+        /* =========================
+           GALLERY
+        ========================== */
+
+        .gallery {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+        }
+
+        .photo-card {
+            overflow: hidden;
+
+            border-radius: 20px;
+
+            background: rgba(255,255,255,.06);
+            border: 1px solid rgba(255,255,255,.12);
+
+            transition: .3s;
+        }
+
+        .photo-card:hover {
+            transform: translateY(-7px);
+
+            box-shadow:
+                0 0 30px rgba(139,92,246,.3);
+        }
+
+        .photo-card img {
+            width: 100%;
+            height: 230px;
+            object-fit: cover;
+            display: block;
+        }
+
+        .photo-text {
+            padding: 15px;
+        }
+
+        .photo-text h3 {
+            margin-bottom: 8px;
+            color: #d8b4fe;
+        }
+
+        .photo-text p {
+            color: #aaaac0;
+            line-height: 1.6;
+            font-size: 14px;
+        }
+
+        /* =========================
+           FOOTER
+        ========================== */
+
+        footer {
+            text-align: center;
+            padding: 70px 20px;
+
+            border-top: 1px solid rgba(255,255,255,.08);
+        }
+
+        footer h2 {
+            font-size: 30px;
+            margin-bottom: 15px;
+
+            background: linear-gradient(
+                90deg,
+                #c084fc,
+                #60a5fa
+            );
+
+            -webkit-background-clip: text;
+            color: transparent;
+        }
+
+        footer p {
+            color: #aaaac0;
+            line-height: 1.8;
+        }
+
+        .heart {
+            margin-top: 20px;
+            color: #d8b4fe;
+        }
+
+        /* =========================
+           RESPONSIVE
+        ========================== */
+
+        @media (max-width: 800px) {
+
+            .gallery {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .profile-img {
+                width: 140px;
+                height: 140px;
+            }
+        }
+
+        @media (max-width: 550px) {
+
+            section {
+                padding: 60px 0;
+            }
+
+            .gallery {
+                grid-template-columns: 1fr;
+            }
+
+            .photo-card img {
+                height: 260px;
+            }
+
+            .socials a {
+                width: 100%;
+            }
+
+            .music-box {
+                right: 10px;
+                bottom: 10px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="stars"></div>
+
+    <!-- =========================
+         HALAMAN PEMBUKA
+    ========================== -->
+
+    <div class="intro" id="intro">
+
+        <div class="intro-box">
+
+            <h1>Welcome to My World</h1>
+
+            <p>
+                Tiny moments, endless dreams, and a little bit of me ♡
+            </p>
+
+            <button class="enter-btn" onclick="enterWebsite()">
+                ✦ ENTER ✦
+            </button>
+
+        </div>
+
+    </div>
+
+    <!-- =========================
+         WEBSITE UTAMA
+    ========================== -->
+
+    <main id="main">
+
+        <!-- PROFILE -->
+
+        <section>
+
+            <div class="profile">
+
+                <!-- GANTI FOTO INI -->
+                <img
+                    src="foto/10.jpg"
+                    alt="foto/jpg"
+                    class="profile-img"
+                >
+
+                <h1>Ziyya</h1>
+
+                <div class="nickname">
+                    @ziyya ✦
+                </div>
+
+                <p class="bio">
+                    Hai, aku Ziyya.
+                    Ini adalah sedikit ruang kecil tentang diriku,
+                    cerita, foto, video, dan hal-hal yang aku sukai.
+                    Selamat datang di duniaku. 🌌
+                </p>
+
+                <!-- SOCIAL MEDIA -->
+
+                <div class="socials">
+
+                    <a href="https://instagram.com/ziyya_fr" target="_blank">
+                        Instagram
+                    </a>
+
+                    <a href="https://www.tiktok.com/@ziyya_fr" target="_blank">
+                        TikTok
+                    </a>
+
+                    <a href="https://www.threads.net/@ziyya_fr" target="_blank">
+                        Threads
+                    </a>
+
+                    <a href="https://t.me/ziyya_fr" target="_blank">
+                        Telegram
+                    </a>
+
+                    <a href="https://youtube.com/@ziyya_fr" target="_blank">
+                        YouTube
+                    </a>
+
+                    <a href="https://facebook.com/ziyya_fr" target="_blank">
+                        Facebook
+                    </a>
+
+                </div>
+
+            </div>
+
+        </section>
+
+        <!-- VIDEO -->
+
+        <section>
+
+            <div class="section-title">
+
+                <h2>✦ VIDIO ✦</h2>
+
+                <p>
+                    YANG LUMAYAN SERU.
+                </p>
+
+            </div>
+
+            <div class="video-card">
+
+                <!-- GANTI VIDEO INI -->
+
+                <video
+                    id="myVideo"
+                    controls
+                    poster="thumbnail.jpg"
+                >
+
+                    <source
+                        src="c:\Users\I Solution\Downloads\Operasi Pesta Copet - Official Trailer.mp4"
+                        type="video/mp4"
+                    >
+
+                    Browser kamu tidak mendukung video.
+
+                </video>
+
+                <div class="video-info">
+
+                    <h3>
+                        Sebuah tailers film
+                    </h3>
+
+                    <p>
+                        thailers yang lumayan seru, jadi mau nonton persi lengkapnya, lain kali deh soalnya belum turun 
+                    </p>
+
+                </div>
+
+            </div>
+
+        </section>
+
+        <!-- GALLERY -->
+
+        <section>
+
+            <div class="section-title">
+
+                <h2>✦ My Gallery ✦</h2>
+
+                <p>
+                    The moments & beautiful memories.
+                </p>
+
+            </div>
+
+            <div class="gallery">
+
+                <!-- FOTO 1 -->
+
+                <div class="photo-card">
+
+                    <img
+                        src="foto/5.jpg"
+                        alt="gacor"
+                    >
+
+                    <div class="photo-text">
+
+                        <h3>Memory #01</h3>
+
+                        <p>
+                            juzur zamet banget..
+                            😭🔥✦
+                        </p>
+
+                    </div>
+
+                </div>
+
+                <!-- FOTO 2 -->
+
+                <div class="photo-card">
+
+                    <img
+                        src="foto/4.jpg"
+                        alt="Foto 2"
+                    >
+
+                    <div class="photo-text">
+
+                        <h3>Memory #02</h3>
+
+                        <p>
+                            Ini kaya yalil-yalilil♡🤭
+                            .
+                        </p>
+
+                    </div>
+
+                </div>
+
+                <!-- FOTO 3 -->
+
+                <div class="photo-card">
+
+                    <img
+                        src="foto/11.jpg"
+                        alt="Foto 3"
+                    >
+
+                    <div class="photo-text">
+
+                        <h3>Memory #03</h3>
+
+                        <p>
+                            Main bola apii nic..
+                             hurung🔥🔥
+                        </p>
+
+                    </div>
+
+                </div>
+
+                <!-- FOTO 4 -->
+
+                <div class="photo-card">
+
+                    <img
+                        src="foto/2.jpg"
+                        alt="Foto 4"
+                    >
+
+                    <div class="photo-text">
+
+                        <h3>Memory #04</h3>
+
+                        <p>
+                            💖°✩
+                            
+                        </p>
+
+                    </div>
+
+                </div>
+
+                <!-- FOTO 5 -->
+
+                <div class="photo-card">
+
+                    <img
+                        src="foto/8.jpg"
+                        alt="Foto 5"
+                    >
+
+                    <div class="photo-text">
+
+                        <h3>Memory #05</h3>
+
+                        <p>
+                            🫶🏻💕
+                            
+                        </p>
+
+                    </div>
+
+                </div>
+
+                <!-- FOTO 6 -->
+
+                <div class="photo-card">
+
+                    <img
+                        src="foto6.jpg"
+                        alt="Foto 6"
+                    >
+
+                    <div class="photo-text">
+
+                        <h3>Memory #06</h3>
+
+                        <p>
+                            One more beautiful moment
+                            to remember.
+                        </p>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+        <!-- FOOTER -->
+
+        <footer>
+
+            <h2>
+                ✦ Thank You For Visiting ✦
+            </h2>
+
+            <p>
+                "Tidak semua perjalanan harus sempurna.
+                <br>
+                Yang penting, setiap langkahnya
+                memiliki cerita."
+            </p>
+
+            <div class="heart">
+                Made with ♡ by Ziyya
+            </div>
+
+        </footer>
+
+    </main>
+
+    <!-- =========================
+         BACKGROUND MUSIC
+    ========================== -->
+
+    <audio id="backgroundMusic" loop>
+
+        <!-- GANTI DENGAN FILE LAGU KAMU -->
+
+        <source
+            src="lagu.mp3"
+            type="audio/mpeg"
+        >
+
+    </audio>
+
+    <!-- MUSIC STATUS -->
+
+    <div class="music-box">
+
+        🎵
+        <span id="musicStatus">
+            Music Off
+        </span>
+
+    </div>
+
+    <!-- =========================
+         JAVASCRIPT
+    ========================== -->
+
+    <script>
+
+        const music =
+            document.getElementById("backgroundMusic");
+
+        const video =
+            document.getElementById("myVideo");
+
+        const status =
+            document.getElementById("musicStatus");
+
+        /*
+        =================================
+        MASUK WEBSITE
+        =================================
+        */
+
+        function enterWebsite() {
+
+            document.getElementById("intro").style.display =
+                "none";
+
+            document.getElementById("main").style.display =
+                "block";
+
+            music.play()
+                .then(() => {
+
+                    status.innerText =
+                        "Playing...";
+
+                })
+                .catch(() => {
+
+                    status.innerText =
+                        "Music Off";
+
+                });
+
+        }
+
+        /*
+        =================================
+        VIDEO DIMAINKAN
+        =================================
+        */
+
+        video.addEventListener("play", function () {
+
+            music.pause();
+
+            status.innerText =
+                "Video Playing";
+
+        });
+
+        /*
+        =================================
+        VIDEO SELESAI
+        =================================
+        */
+
+        video.addEventListener("ended", function () {
+
+            music.play()
+                .then(() => {
+
+                    status.innerText =
+                        "Playing...";
+
+                });
+
+        });
+
+    </script>
+
+</body>
+</html>
+```
+
+
